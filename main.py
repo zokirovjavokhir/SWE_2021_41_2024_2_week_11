@@ -6,16 +6,18 @@ def path_to_file_list(path: str) -> List[str]:
     lines = open(path, 'r').read().split('\n')
     return lines
 
-def train_file_list_to_json(english_file_list: List[str], german_file_list: List[str]) -> List[str]:
-    """Converts two lists of file paths into a list of json strings"""
-    # Preprocess unwanted characters
-    def process_file(file):
-        if '\\' in file:
-            file = file.replace('\\', '\\\\')
-        if '/' or '"' in file:
-            file = file.replace('/', '\\/')
-            file = file.replace('"', '\\"')
-        return file
+# Example function in `train_file_list_to_json` branch
+def train_file_list_to_json():
+    file_list = []
+    # Example processing logic to read from "english.txt" and "german.txt" and add to `file_list`
+    try:
+        with open('english.txt', 'r') as eng_file, open('german.txt', 'r') as ger_file:
+            for eng_line, ger_line in zip(eng_file, ger_file):
+                file_list.append({"English": eng_line.strip(), "German": ger_line.strip()})
+    except FileNotFoundError as e:
+        print(f"Error: {e}")
+    return file_list  # Ensure this returns a list
+
 
     # Template for json file
     template_start = '{\"English\":\"'
