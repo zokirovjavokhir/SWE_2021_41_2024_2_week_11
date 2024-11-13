@@ -1,10 +1,11 @@
 from typing import List
 
-def path_to_file_list(path: str) -> List[str]:
-    """Reads a file and returns a list of lines in the file"""
-    # implemented as a one-liner
-    lines = open(path, 'w').split('\n')
-    return lines
+# Example function in `path_to_file_list` branch
+def path_to_file_list():
+    path = 'path/to/files/'  # Define the file path, e.g., directory where files are stored
+    file_list = ['english.txt', 'german.txt']  # Example list of file paths
+    return [path + file for file in file_list]  # Ensure this returns a list of file paths
+
 
 def train_file_list_to_json(english_file_list: List[str], german_file_list: List[str]) -> List[str]:
     """Converts two lists of file paths into a list of json strings"""
